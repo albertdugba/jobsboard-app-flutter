@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class Job with ChangeNotifier {
   final String id;
   final String imageUrl;
+  final String company;
   final String position;
-  final String location;
+
   final String description;
   final int salary;
   bool isFavourite;
@@ -12,8 +13,8 @@ class Job with ChangeNotifier {
   Job({
     this.id,
     this.imageUrl,
+    this.company,
     this.position,
-    this.location,
     this.description,
     this.salary,
     this.isFavourite = false,

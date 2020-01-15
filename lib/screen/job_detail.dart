@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/model/job_provider.dart';
+import 'package:weather_app/widgets/tab_segmented.dart';
 
 class JobDetail extends StatelessWidget {
   static const routeName = '/details';
@@ -22,12 +23,7 @@ class JobDetail extends StatelessWidget {
               ),
             ),
           ),
-          Column(
-            children: <Widget>[
-              Text(loadedJobs.position),
-              Text('\$${loadedJobs.salary}K/year')
-            ],
-          )
+          TabSegment()
         ],
       ),
     );

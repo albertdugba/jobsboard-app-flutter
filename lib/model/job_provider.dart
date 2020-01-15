@@ -7,8 +7,8 @@ class JobProvider with ChangeNotifier {
       id: '1',
       imageUrl:
           'https://image.shutterstock.com/image-photo/autonomous-selfdriving-driverless-drive-vehicle-600w-295803887.jpg',
+      company: 'Google,New York',
       position: 'Autonomous Engineer',
-      location: 'San Francisco',
       description:
           'We are a team of dedicated enginner who produces flying cars and electric vehicles',
       salary: 120,
@@ -17,8 +17,8 @@ class JobProvider with ChangeNotifier {
       id: '2',
       imageUrl:
           'https://image.shutterstock.com/image-photo/stone-staffordshire-united-kingdom-november-260nw-1555667624.jpg',
+      company: 'Alibaba, UK',
       position: 'Frontend Developer',
-      location: 'China',
       description:
           'Frontend Engineeer with skills in reactjs,node apis, graphQL',
       salary: 20,
@@ -27,8 +27,8 @@ class JobProvider with ChangeNotifier {
       id: '3',
       imageUrl:
           'https://image.shutterstock.com/image-photo/kiev-ukraine-may-30-2016-600w-428643526.jpg',
+      company: 'Udacity,',
       position: 'Systems Engineer',
-      location: 'San Francisco',
       description:
           'We are a team of dedicated enginner who produces flying cars and electric vehicles',
       salary: 100,

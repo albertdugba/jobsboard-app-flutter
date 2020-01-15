@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/styles/styles.dart';
 
 class ApplyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 23.0),
-      child: Card(
-        child: Container(
-          height: 120.0,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              alignment: Alignment.topCenter,
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                  'https://c7.uihere.com/files/749/121/120/5b966b4ed47bd-thumb.jpg'),
+    return ListView(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 23.0),
+          child: Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                    width: 120.0,
+                    height: 390.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: Image.network(
+                        'https://bit.ly/36QYrvz',
+                        fit: BoxFit.cover,
+                      ),
+                    )),
+                Text('Be an applicant today'),
+                Text(
+                    'Get your dream job today and be part of the top 100 applicants to get training from our HR Experts'),
+                RaisedButton(
+                  child: Text('Sign Up'),
+                  onPressed: () {},
+                )
+              ],
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Text('Become an ealry applicant!'),
-              Text(
-                  'When you fill in the regitration form, you have mandatory fields and ')
-            ],
-          ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }

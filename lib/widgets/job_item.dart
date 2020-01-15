@@ -8,64 +8,81 @@ class JobItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final job = Provider.of<Job>(context);
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(10),
-            bottomLeft: Radius.circular(10),
-          ),
-        ),
-        elevation: 5,
-        child: ClipPath(
-          child: Container(
-            height: 100.0,
-            decoration: BoxDecoration(
-              border: Border(
-                  right: BorderSide(
-                      color: Theme.of(context).primaryColor, width: 9)),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
             ),
-            child: GestureDetector(
-              onTap: () => Navigator.of(context)
-                  .pushNamed(JobDetail.routeName, arguments: job.id),
-              child: Hero(
-                tag: job.imageUrl,
-                child: Material(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      foregroundColor: Colors.white,
-                      maxRadius: 30,
-                      minRadius: 25,
-                      backgroundImage: NetworkImage(job.imageUrl, scale: 19),
-                    ),
-                    title: Text(job.position, style: kJobTexStyles),
-                    subtitle: Text('\GHC${job.salary}/yr'),
-                    trailing: IconButton(
-                      icon: job.isFavourite
-                          ? Icon(Icons.bookmark_border)
-                          : Icon(Icons.bookmark),
-                      onPressed: () {
-                        final snackBar =
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                          content: Text('You have bookmarked 1 job'),
-                          action: SnackBarAction(
-                            onPressed: () {},
-                            label: 'UNDO',
+          ),
+          elevation: 5,
+          child: ClipPath(
+            child: Container(
+              height: 100.0,
+              decoration: BoxDecoration(
+                border: Border(
+                    right: BorderSide(
+                        color: Theme.of(context).primaryColor, width: 9)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Hero(
+                  tag: job.imageUrl,
+                  child: Material(
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context)
+                          .pushNamed(JobDetail.routeName, arguments: job.id),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          CircleAvatar(
+                            maxRadius: 30.0,
+                            minRadius: 28.0,
+                            backgroundImage: NetworkImage(job.imageUrl),
                           ),
-                        ));
-                        return snackBar;
-                      },
+                          Container(
+                            alignment: Alignment.bottomCenter,
+                            child: Column(
+                              // mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(job.company),
+                                Text(job.position, style: kJobTitle),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: <Widget>[
+                                    Text('\GHC${job.salary}K/year'),
+                                    SizedBox(width: 50),
+                                    Text('8 days')
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.bookmark_border),
+                            onPressed: () {},
+                            splashColor: Theme.of(context).primaryColor,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          clipper: ShapeBorderClipper(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(3),
+            clipper: ShapeBorderClipper(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(3),
+              ),
             ),
           ),
         ),
