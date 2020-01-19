@@ -18,7 +18,7 @@ class Application extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
-          primaryColor: Colors.purple[500],
+          primaryColor: Colors.teal[500],
           accentColor: Colors.grey[900],
         ),
         home: HomePage(),

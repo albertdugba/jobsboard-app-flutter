@@ -2,44 +2,74 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/model/job.dart';
 
 class JobProvider with ChangeNotifier {
-  final List<Job> _jobData = [
+  final List<Job> jobs = [
     Job(
       id: '1',
-      imageUrl:
-          'https://image.shutterstock.com/image-photo/autonomous-selfdriving-driverless-drive-vehicle-600w-295803887.jpg',
-      company: 'Google,New York',
-      position: 'Autonomous Engineer',
+      imageUrl: Image.asset('images/air.jpeg'),
+      company: 'AirBnB,London',
+      position: 'Frontend Dev',
       description:
-          'We are a team of dedicated enginner who produces flying cars and electric vehicles',
-      salary: 120,
+          'As part of the frontend engineering team, you would be work with designers and backend engineers to develop a working proptoype. Skills required includes but not limited to',
+      salary: ' 20-25k',
     ),
     Job(
       id: '2',
-      imageUrl:
-          'https://image.shutterstock.com/image-photo/stone-staffordshire-united-kingdom-november-260nw-1555667624.jpg',
-      company: 'Alibaba, UK',
-      position: 'Frontend Developer',
+      imageUrl: Image.asset('images/amazon.png'),
+      company: 'Amazon, South Africa',
+      position: 'DevOps Eng',
       description:
-          'Frontend Engineeer with skills in reactjs,node apis, graphQL',
-      salary: 20,
+          'As part of the frontend Devops team, you would be working on the server side alot, configuring databases, dockerising images, testing and automating workflow',
+      salary: ' 20-25k',
     ),
     Job(
       id: '3',
-      imageUrl:
-          'https://image.shutterstock.com/image-photo/kiev-ukraine-may-30-2016-600w-428643526.jpg',
-      company: 'Udacity,',
-      position: 'Systems Engineer',
+      imageUrl: Image.asset('images/bull.jpeg'),
+      company: 'RedBull,Ghana',
+      position: 'Digital Marketer',
       description:
-          'We are a team of dedicated enginner who produces flying cars and electric vehicles',
-      salary: 100,
+          'A solid digital marketing manager who will create and manage campaigns, and target audience via social media handles, read data anaalytics from the dashboard and make meaning out of that data for business descisions',
+      salary: ' 20-25k',
+    ),
+    Job(
+      id: '3',
+      imageUrl: Image.asset('images/bull.jpeg'),
+      company: 'RedBull,Ghana',
+      position: 'Digital Marketer',
+      description:
+          'A solid digital marketing manager who will create and manage campaigns, and target audience via social media handles, read data anaalytics from the dashboard and make meaning out of that data for business descisions',
+      salary: ' 20-25k',
+    ),
+    Job(
+      id: '3',
+      imageUrl: Image.asset('images/bull.jpeg'),
+      company: 'RedBull,Ghana',
+      position: 'Digital Marketer',
+      description:
+          'A solid digital marketing manager who will create and manage campaigns, and target audience via social media handles, read data anaalytics from the dashboard and make meaning out of that data for business descisions',
+      salary: ' 20-25k',
+    ),
+    Job(
+      id: '3',
+      imageUrl: Image.asset('images/bull.jpeg'),
+      company: 'RedBull,Ghana',
+      position: 'Digital Marketer',
+      description:
+          'A solid digital marketing manager who will create and manage campaigns, and target audience via social media handles, read data anaalytics from the dashboard and make meaning out of that data for business descisions',
+      salary: ' 20-25k',
+    ),
+    Job(
+      id: '3',
+      imageUrl: Image.asset('images/bull.jpeg'),
+      company: 'RedBull,Ghana',
+      position: 'Digital Marketer',
+      description:
+          'A solid digital marketing manager who will create and manage campaigns, and target audience via social media handles, read data anaalytics from the dashboard and make meaning out of that data for business descisions',
+      salary: ' 20-25k',
     ),
   ];
 
-  List<Job> get jobsList {
-    return [..._jobData];
-  }
-
-  Job findByID(String id) {
-    return _jobData.firstWhere((job) => job.id == id);
-  }
+  // void findJobById(String id) {
+  //   final jobId = jobs.where((job) => job.id == id);
+  //   return jobId;
+  // }
 }
