@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:weather_app/model/job.dart';
 
 class TabSegment extends StatefulWidget {
   @override
@@ -17,7 +15,7 @@ class _TabSegmentState extends State<TabSegment> {
     2: Text('Reviews')
   };
 
-  static Widget _tabContent(BuildContext context, String content) {
+  static Widget _tabContent(String content) {
     return Column(
       children: <Widget>[
         Text(' Content: $content'),
@@ -25,22 +23,34 @@ class _TabSegmentState extends State<TabSegment> {
     );
   }
 
+  List<Widget> bodies = [
+    _tabContent('Description'),
+    _tabContent('Company'),
+    _tabContent('Reviews'),
+  ];
   @override
   Widget build(BuildContext context) {
     // final tabJob = Provider.of<Job>(context);
-    return Container(
-      child: CupertinoSegmentedControl(
-        padding: EdgeInsets.all(29),
-        borderColor: Theme.of(context).accentColor,
-        selectedColor: Theme.of(context).primaryColor,
-        groupValue: _groupValues,
-        onValueChanged: (changeFromGroupValue) {
-          setState(() {
-            _groupValues = changeFromGroupValue;
-          });
-        },
-        children: logoWidgets,
-      ),
+    return Column(
+      children: <Widget>[
+        Container(
+          child: CupertinoSegmentedControl(
+            padding: EdgeInsets.all(29),
+            borderColor: Theme.of(context).accentColor,
+            selectedColor: Theme.of(context).primaryColor,
+            groupValue: _groupValues,
+            onValueChanged: (changeFromGroupValue) {
+              setState(() {
+                _groupValues = changeFromGroupValue;
+              });
+            },
+            children: logoWidgets,
+          ),
+        ),
+        Text(
+          bodies.toString(),
+        )
+      ],
     );
   }
 }
