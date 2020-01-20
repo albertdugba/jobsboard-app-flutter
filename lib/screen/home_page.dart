@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/drawer.dart';
 import 'package:weather_app/widgets/apply_card.dart';
 import 'package:weather_app/widgets/job_list.dart';
 
@@ -36,6 +35,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          PopupMenuButton(
+            onSelected: (int selectedValue) {},
+            icon: Icon(Icons.more_horiz),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: Text('Only Bookmarks'),
+                value: 0,
+              ),
+              PopupMenuItem(
+                child: Text('All Jobs'),
+                value: 1,
+              ),
+            ],
+          )
+        ],
         title: Text('Jobs Board'),
         bottom: PreferredSize(
           child: Row(
@@ -62,7 +77,6 @@ class HomePage extends StatelessWidget {
               width: double.infinity,
               height: MediaQuery.of(context).size.height + 20,
               decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
@@ -114,7 +128,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     height: 120,
-                    child: ApplyCard(),
+                    child: JobApplyCard(),
                   )
                 ],
               ),

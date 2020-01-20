@@ -7,10 +7,11 @@ class JobDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final jobId = ModalRoute.of(context).settings.arguments;
-    final loadedJobs = Provider.of<JobProvider>(context);
+    final loadAllJobs =
+        Provider.of<JobProvider>(context, listen: false).findJobById(jobId);
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedJobs.jobs.length.toString()),
+        title: Text(loadAllJobs.position),
       ),
       body: null,
     );

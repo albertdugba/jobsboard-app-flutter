@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class Job with ChangeNotifier {
   final String id;
-  final Image imageUrl;
+  final String imageUrl;
   final String company;
   final String position;
   final String description;
   final String salary;
-  bool isFavourite;
+  bool isBookmarked;
 
   Job({
     @required this.id,
@@ -16,10 +16,12 @@ class Job with ChangeNotifier {
     @required this.position,
     @required this.description,
     @required this.salary,
-    this.isFavourite = false,
+    this.isBookmarked = false,
   });
 
-  void toggleSaveJob() {
-    isFavourite = !isFavourite;
+  void toggleBookmaredJobs() {
+    isBookmarked = !isBookmarked;
+
+    notifyListeners();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/model/job.dart';
 import 'package:weather_app/model/job_provider.dart';
 import 'package:weather_app/screen/home_page.dart';
 import 'package:weather_app/screen/job_detail.dart';
@@ -14,6 +15,9 @@ class Application extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: JobProvider(),
         ),
+        // ChangeNotifierProvider.value(
+        //   value: Job(),
+        // )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
